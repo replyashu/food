@@ -25,7 +25,7 @@ import ashu.chatorigali.global.Constant;
  */
 public class Splash extends AppCompatActivity {
     private String urlOfApp = "https://play.google.com/store/apps/" +
-            "details?id=filter.ashu.smsfilter";
+            "details?id=ashu.chatorigali";
     private String latestVersion;
     private String currentVersion;
 
@@ -87,7 +87,7 @@ public class Splash extends AppCompatActivity {
                         }
                         else
                             intent = new Intent(getApplicationContext(),
-                                    Login.class);
+                                    MainActivity.class);
                         startActivity(intent);
                         finish();
                     } catch (Exception e) {
@@ -107,41 +107,11 @@ public class Splash extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-//        client.connect();
-//        Action viewAction = Action.newAction(
-//                Action.TYPE_VIEW, // TODO: choose an action type.
-//                "Splash Page", // TODO: Define a title for the content shown.
-//                // TODO: If you have web page content that matches this app activity's content,
-//                // make sure this auto-generated web page URL is correct.
-//                // Otherwise, set the URL to null.
-//                Uri.parse("http://host/path"),
-//                // TODO: Make sure this auto-generated app URL is correct.
-//                Uri.parse("android-app://activity/http/host/path")
-//        );
-//        AppIndex.AppIndexApi.start(client, viewAction);
     }
 
     @Override
     public void onStop() {
         super.onStop();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-//        Action viewAction = Action.newAction(
-//                Action.TYPE_VIEW, // TODO: choose an action type.
-//                "Splash Page", // TODO: Define a title for the content shown.
-//                // TODO: If you have web page content that matches this app activity's content,
-//                // make sure this auto-generated web page URL is correct.
-//                // Otherwise, set the URL to null.
-//                Uri.parse("http://host/path"),
-//                // TODO: Make sure this auto-generated app URL is correct.
-//                Uri.parse("android-app://activity/http/host/path")
-//        );
-//        AppIndex.AppIndexApi.end(client, viewAction);
-//        client.disconnect();
     }
 
     public class GetCurrentVersion extends AsyncTask<Void, Void, Void> {
@@ -167,14 +137,6 @@ public class Splash extends AppCompatActivity {
             if (!(currentVersion.equalsIgnoreCase(latestVersion) || latestVersion == null))
                 showUpdateDialog();
             else {
-//                String[] PERMISSIONS = {Manifest.permission.READ_CONTACTS,
-//                        Manifest.permission.READ_SMS, Manifest.permission.RECEIVE_SMS,
-//                        Manifest.permission.GET_ACCOUNTS, Manifest.permission.READ_PHONE_STATE};
-//
-//                if (!hasPermissions(getApplicationContext(), PERMISSIONS)) {
-//                    ActivityCompat.requestPermissions(getParent(), PERMISSIONS, REQUEST_ID_MULTIPLE_PERMISSIONS);
-//                }
-//                else
                 splashThread.start();
             }
             super.onPostExecute(aVoid);

@@ -57,7 +57,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener, Go
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setLayoutAndVariables();
-
     }
 
     private void setLayoutAndVariables(){
@@ -102,7 +101,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener, Go
                                     GraphResponse response) {
                                 // Application code
                                 try {
-
                                     Log.d("value", response.toString());
                                     loginButton.setVisibility(View.GONE);
                                     mFullName = response.getJSONObject().getString("name");
@@ -110,7 +108,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener, Go
                                     mEmail = response.getJSONObject().getString("email");
                                     String from = "fb";
 
-//
                                     editor.putString(Constant.NAME, mFullName);
                                     editor.putString(Constant.EMAIL, mEmail);
                                     editor.putString(Constant.PROFILE_PIC, mPhoto);
@@ -121,7 +118,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener, Go
 
                                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                                     finish();
-
 
                                 } catch (Exception e) {
                                     Log.d("fblogin", "error is = " + e.getMessage());
