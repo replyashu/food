@@ -10,8 +10,12 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -36,6 +40,14 @@ public class AddRecipe extends AppCompatActivity implements View.OnClickListener
     private static int i;
     private File output = null;
 
+    private EditText editTitle;
+    private EditText editServings;
+    private EditText editIngredients;
+
+    private StringBuffer stringBuffer;
+    private int lineNumber = 0;
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +64,10 @@ public class AddRecipe extends AppCompatActivity implements View.OnClickListener
         setContentView(R.layout.add_recipe);
         imageCamera = (ImageView) findViewById(R.id.imgCamera);
         imageCamera.setOnClickListener(this);
+
+        editTitle = (EditText) findViewById(R.id.editTitleRecipe);
+        editServings = (EditText) findViewById(R.id.editServings);
+        editIngredients = (EditText) findViewById(R.id.editIngredients);
     }
 
     @Override
@@ -64,10 +80,10 @@ public class AddRecipe extends AppCompatActivity implements View.OnClickListener
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
                 File dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
-
                 output = new File(dir, "Content" + i++ + ".jpeg");
 //                imageUri = Uri.fromFile(new File(Environment.getExternalStorageDirectory(),"fname_" +
 //                        String.valueOf(System.currentTimeMillis()) + ".jpg"));
+
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(output));
                 startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
                 break;
@@ -78,9 +94,7 @@ public class AddRecipe extends AppCompatActivity implements View.OnClickListener
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
             if (requestCode == RESULT_OK) {
-
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-
                 intent.setDataAndType(Uri.fromFile(output), "image/jpeg");
                 startActivity(intent);
                 finish();

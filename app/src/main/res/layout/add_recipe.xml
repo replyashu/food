@@ -1,16 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imgCamera"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:padding="20dp"
-        android:src="@drawable/camera" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    
+            <ImageView
+                android:id="@+id/imgCamera"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:padding="20dp"
+                android:background="@android:color/darker_gray"
+                android:src="@drawable/camera" />
 
-</LinearLayout>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SAVE"
+                android:layout_margin="5dp"
+                android:background="@android:color/holo_green_dark"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:layout_alignParentRight="true"
+                android:visibility="gone"
+                android:id="@+id/btnSave"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter the Title for the Recipe"
+                android:layout_margin="10dp"
+                android:paddingTop="10dp"
+                android:paddingLeft="20dp"
+                android:paddingBottom="15dp"
+                android:background="@drawable/border"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/imgCamera"
+                android:id="@+id/editTitleRecipe" />
+
+            <TextView
+                android:text="INGREDIENTS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="50dp"
+                android:textStyle="bold"
+                android:layout_margin="5dp"
+                android:layout_below="@+id/editTitleRecipe"
+                android:id="@+id/txtIngredients" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editServings"
+                android:background="@drawable/border"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingTop="3dp"
+                android:gravity="center"
+                android:inputType="number"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/txtIngredients"
+                android:layout_below="@id/editTitleRecipe"
+                android:hint="No of Servings"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:hint="Enter Ingredients Here"
+                android:background="@drawable/border"
+                android:layout_below="@+id/txtIngredients"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:id="@+id/editIngredients" />
+
+            <TextView
+                android:text="Method Of Preparation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="50dp"
+                android:textStyle="bold"
+                android:layout_margin="5dp"
+                android:layout_below="@+id/editIngredients"
+                android:id="@+id/txtMethod" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/editDuration"
+                android:background="@drawable/border"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingTop="3dp"
+                android:gravity="center"
+                android:inputType="number"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_toRightOf="@+id/txtMethod"
+                android:layout_below="@id/editIngredients"
+                android:hint="Duration"/>
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Publish"
+        android:id="@+id/btnPublish"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

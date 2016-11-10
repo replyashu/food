@@ -23,6 +23,7 @@ import ashu.chatorigali.global.Constant;
 /**
  * Created by apple on 07/09/16.
  */
+
 public class Splash extends AppCompatActivity {
     private String urlOfApp = "https://play.google.com/store/apps/" +
             "details?id=ashu.chatorigali";
@@ -33,11 +34,11 @@ public class Splash extends AppCompatActivity {
     private Dialog dialog;
     private Thread splashThread = null;
     public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;
+
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
