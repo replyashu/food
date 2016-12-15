@@ -46,6 +46,7 @@ public class AddRecipe extends AppCompatActivity implements View.OnClickListener
 
     private StringBuffer stringBuffer;
     private int lineNumber = 0;
+    private int prevLength;
 
 
     @Override
@@ -56,6 +57,34 @@ public class AddRecipe extends AppCompatActivity implements View.OnClickListener
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("message");
+
+        editIngredients.setText("\u2022 ");
+
+        editIngredients.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                prevLength = s.length();
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(s.length() == 0) {
+                    lineNumber = 0;
+                    s.append("\u2022 ");
+                }
+                else if(s.charAt(s.length()-1) == '\n' ) {
+                    if(prevLength > s.length())
+                        lineNumber--;
+                    else
+                        s.append("\u2022 ");
+                }
+            }
+        });
 
         myRef.setValue("Hello, World!");
     }
