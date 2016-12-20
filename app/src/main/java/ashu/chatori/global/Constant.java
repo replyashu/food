@@ -1,4 +1,4 @@
-package ashu.chatorigali.global;
+package ashu.chatori.global;
 
 /**
  * Created by apple on 07/09/16.

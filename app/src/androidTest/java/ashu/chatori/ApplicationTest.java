@@ -1,4 +1,4 @@
-package ashu.chatorigali;
+package ashu.chatori;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

@@ -1,4 +1,4 @@
-package ashu.chatorigali;
+package ashu.chatori;
 
 import org.junit.Test;
 

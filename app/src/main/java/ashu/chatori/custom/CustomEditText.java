@@ -1,4 +1,4 @@
-package ashu.chatorigali.custom;
+package ashu.chatori.custom;
 
 import android.content.Context;
 import android.widget.EditText;

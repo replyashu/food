@@ -1,9 +1,8 @@
-package ashu.chatorigali.activity;
+package ashu.chatori.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -21,8 +20,8 @@ import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 import com.squareup.picasso.Picasso;
 
-import ashu.chatorigali.R;
-import ashu.chatorigali.global.Constant;
+import ashu.chatori.R;
+import ashu.chatori.global.Constant;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private SharedPreferences.Editor editor;

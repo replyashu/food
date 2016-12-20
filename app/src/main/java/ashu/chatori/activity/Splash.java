@@ -1,4 +1,4 @@
-package ashu.chatorigali.activity;
+package ashu.chatori.activity;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -17,8 +17,8 @@ import android.util.Log;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
-import ashu.chatorigali.R;
-import ashu.chatorigali.global.Constant;
+import ashu.chatori.R;
+import ashu.chatori.global.Constant;
 
 /**
  * Created by apple on 07/09/16.

@@ -1,4 +1,4 @@
-package ashu.chatorigali.activity;
+package ashu.chatori.activity;
 
 import android.content.Context;
 import android.content.ContextWrapper;
@@ -13,11 +13,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -26,7 +24,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import ashu.chatorigali.R;
+import ashu.chatori.R;
 
 /**
  * Created by apple on 12/09/16.
@@ -56,7 +54,7 @@ public class AddRecipe extends AppCompatActivity implements View.OnClickListener
         setLayoutAndVariables();
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("message");
+        DatabaseReference myRef = database.getReference("recipe");
 
         editIngredients.setText("\u2022 ");
 
@@ -74,8 +72,8 @@ public class AddRecipe extends AppCompatActivity implements View.OnClickListener
             @Override
             public void afterTextChanged(Editable s) {
                 if(s.length() == 0) {
-                    lineNumber = 0;
                     s.append("\u2022 ");
+                    lineNumber = 0;
                 }
                 else if(s.charAt(s.length()-1) == '\n' ) {
                     if(prevLength > s.length())
@@ -93,7 +91,6 @@ public class AddRecipe extends AppCompatActivity implements View.OnClickListener
         setContentView(R.layout.add_recipe);
         imageCamera = (ImageView) findViewById(R.id.imgCamera);
         imageCamera.setOnClickListener(this);
-
         editTitle = (EditText) findViewById(R.id.editTitleRecipe);
         editServings = (EditText) findViewById(R.id.editServings);
         editIngredients = (EditText) findViewById(R.id.editIngredients);
@@ -125,6 +122,8 @@ public class AddRecipe extends AppCompatActivity implements View.OnClickListener
             if (requestCode == RESULT_OK) {
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setDataAndType(Uri.fromFile(output), "image/jpeg");
+//              Bitmap photo = (Bitmap) data.getExtras().get("data");
+//              imageCamera.setImageBitmap(photo);
                 startActivity(intent);
                 finish();
             }

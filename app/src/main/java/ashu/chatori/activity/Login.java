@@ -1,4 +1,4 @@
-package ashu.chatorigali.activity;
+package ashu.chatori.activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -29,8 +29,8 @@ import com.google.android.gms.common.api.GoogleApiClient;
 
 import org.json.JSONObject;
 
-import ashu.chatorigali.R;
-import ashu.chatorigali.global.Constant;
+import ashu.chatori.R;
+import ashu.chatori.global.Constant;
 
 /**
  * Created by apple on 07/09/16.
